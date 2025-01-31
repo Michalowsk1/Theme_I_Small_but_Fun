@@ -4,43 +4,42 @@ using UnityEngine;
 
 public class puzzle : MonoBehaviour
 {
-    [SerializeField] GameObject SolidPurpleWall;
-    [SerializeField] GameObject PurpleWall;
-    [SerializeField] GameObject Collider;
-    bool red = false;
-    bool blue = false;
+    [SerializeField] GameObject solidPurpleWall;
+    [SerializeField] GameObject purpleWall;
+    [SerializeField] GameObject triggerBox;
+    bool blue = false, red = false;
     // Start is called before the first frame update
     void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-      if (red = true && blue == true)
-        {
-            SolidPurpleWall.SetActive(false);
-        }
+        solidPurpleWall.SetActive(false);
+        purpleWall.SetActive(false);
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.tag == "Red")
         {
-        red = true; 
+            red = true;
         }
 
-        if (collision.gameObject.tag == "Blue")
+        if(collision.gameObject.tag == "Blue")
         {
             blue = true;
         }
 
-        if(collision.gameObject.tag == "Collision")
+        if(collision.gameObject.tag == "Collider")
         {
-            Collider.SetActive(false);
-            SolidPurpleWall.SetActive(true);
-            SolidPurpleWall.SetActive(true);
+            triggerBox.SetActive(false);
+            solidPurpleWall.SetActive(true);
+            purpleWall.SetActive(true);
+        }
+    }
+    // Update is called once per frame
+    void Update()
+    {
+        if (blue == true && red == true)
+        {
+            solidPurpleWall.SetActive(false);
         }
     }
 }
