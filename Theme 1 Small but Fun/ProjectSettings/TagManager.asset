@@ -7,6 +7,13 @@ TagManager:
   - Blue
   - Red
   - Collider
+  - Kill
+  - Collision
+  - MazeCollision
+  - YellowPlate
+  - RedPlate
+  - Kill2
+  - KillCube
   layers:
   - Default
   - TransparentFX

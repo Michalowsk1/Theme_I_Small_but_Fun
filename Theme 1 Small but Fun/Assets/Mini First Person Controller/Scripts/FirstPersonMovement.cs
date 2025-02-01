@@ -4,6 +4,10 @@ using UnityEngine;
 public class FirstPersonMovement : MonoBehaviour
 {
     public float speed = 5;
+    public Transform Respawn;
+    public Transform Respawn2;
+    public Transform Respawn3;
+    [SerializeField] GameObject player;
 
     [Header("Running")]
     public bool canRun = true;
@@ -41,5 +45,23 @@ public class FirstPersonMovement : MonoBehaviour
 
         // Apply movement.
         rigidbody.velocity = transform.rotation * new Vector3(targetVelocity.x, rigidbody.velocity.y, targetVelocity.y);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.tag == "Kill")
+        {
+            player.transform.position = Respawn.position;
+        }
+
+        if (collision.gameObject.tag == "Kill2")
+        {
+            player.transform.position = Respawn2.position;
+        }
+
+        if(collision.gameObject.tag == "KillCube")
+        {
+            player.transform.position = Respawn3.position;
+        }
     }
 }
