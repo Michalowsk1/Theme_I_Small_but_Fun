@@ -12,7 +12,7 @@ public class FirstPersonMovement : MonoBehaviour
     [Header("Running")]
     public bool canRun = true;
     public bool IsRunning { get; private set; }
-    public float runSpeed = 9;
+    public static float runSpeed = 9;
     public float jumpVel = 9;
     public KeyCode runningKey = KeyCode.LeftShift;
 

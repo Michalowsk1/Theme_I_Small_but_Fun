@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Sound : MonoBehaviour
 {
-    public AudioSource behindYou, Red, Ramp, Orange, youWin;
+    public AudioSource behindYou, Red, Ramp, Orange, youWin, Walk;
     [SerializeField] GameObject Player;
     // Start is called before the first frame update
     void Start()
@@ -43,6 +43,15 @@ public class Sound : MonoBehaviour
         if (collision.gameObject.tag == "YellowPlate")
         {
             Orange.Play();
+        }
+
+        if(collision.gameObject.tag == "Noise")
+        {
+            Walk.Play();
+        }
+        else if(collision.gameObject.tag != "Noise")
+        {
+            Walk.Stop();
         }
     }
 }
