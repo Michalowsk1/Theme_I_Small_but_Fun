@@ -15,6 +15,7 @@ TagManager:
   - Kill2
   - KillCube
   - Win
+  - Noise
   layers:
   - Default
   - TransparentFX
